@@ -1,0 +1,697 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Murtaza Haider · Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="particles" id="particles"></div>
+    <div class="light-leak"></div>
+
+    <!-- ══════ NAV ══════ -->
+    <nav class="nav-tabs" id="navTabs">
+        <div class="nav-inner">
+            <div class="nav-logo">
+                <span class="nav-brace">⟪</span>
+                <span class="nav-logo-text">S.M. HAIDER</span>
+                <span class="nav-brace">⟫</span>
+            </div>
+            <div class="tab-list">
+                <button class="tab-btn tab-active" data-tab="about"><span class="tab-glyph">⛨</span> About</button>
+                <button class="tab-btn" data-tab="projects"><span class="tab-glyph">◈</span> Projects</button>
+                <button class="tab-btn" data-tab="contact"><span class="tab-glyph">✦</span> Contact</button>
+            </div>
+            <!-- Theme picker -->
+            <div class="theme-picker" id="themePicker" role="group" aria-label="Choose colour theme">
+                <button class="theme-opt theme-opt--dark  theme-opt--active" data-theme="dark"  title="Dark mode">
+                    <span class="theme-opt-icon">🌙</span>
+                    <span class="theme-opt-label">Dark</span>
+                </button>
+                <button class="theme-opt theme-opt--light" data-theme="light" title="Light mode">
+                    <span class="theme-opt-icon">☀</span>
+                    <span class="theme-opt-label">Light</span>
+                </button>
+                <button class="theme-opt theme-opt--color" data-theme="color" title="Colour mode">
+                    <span class="theme-opt-icon">◈</span>
+                    <span class="theme-opt-label">Night Owl</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="world-stage">
+
+        <!-- ══════ ABOUT ══════ -->
+        <div class="tab-panel tab-panel--active" id="tab-about">
+        <div class="status-window" id="statusWindow">
+
+            <div class="window-chrome" aria-hidden="true">
+                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="#b8860b" stroke-width="2"/><path d="M8 48 L8 8 L48 8" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="5" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="#b8860b" stroke-width="2"/><path d="M40 48 L40 8 L0 8" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="43" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="#b8860b" stroke-width="2"/><path d="M8 0 L8 40 L48 40" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="5" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="#b8860b" stroke-width="2"/><path d="M40 0 L40 40 L0 40" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="43" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+            </div>
+
+            <header class="window-header">
+                <div class="header-rule"></div>
+                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">CHARACTER STATUS</span><span class="header-brace">⟫</span></div>
+                <div class="header-rule"></div>
+            </header>
+
+            <div class="content-grid">
+
+                <!-- LEFT -->
+                <aside class="portrait-column">
+                    <div class="portrait-frame" id="portraitFrame">
+                        <div class="portrait-aura"></div>
+                        <div class="portrait-ring">
+                            <img src="./mypic.png" alt="Syed Murtaza Haider" class="portrait-img" onerror="this.style.display='none'"/>
+                        </div>
+                        <div class="shield-badge" title="Frontend Developer">
+                            <svg viewBox="0 0 56 66" width="32" height="38">
+                                <path d="M28 3 L53 13 L53 33 C53 50 28 63 28 63 C28 63 3 50 3 33 L3 13 Z" fill="#0e0d1c" stroke="#b8860b" stroke-width="2.2"/>
+                                <path d="M28 10 L46 18 L46 32 C46 45 28 56 28 56 C28 56 10 45 10 32 L10 18 Z" fill="#12111e" stroke="#7a5a10" stroke-width="1" opacity="0.8"/>
+                                <line x1="28" y1="11" x2="28" y2="54" stroke="#b8860b" stroke-width="1.4" opacity="0.45"/>
+                                <line x1="7" y1="29" x2="49" y2="29" stroke="#b8860b" stroke-width="1.4" opacity="0.45"/>
+                                <circle cx="28" cy="29" r="4.5" fill="none" stroke="#b8860b" stroke-width="1.2" opacity="0.7"/>
+                                <circle cx="28" cy="29" r="2" fill="#b8860b"/>
+                            </svg>
+                        </div>
+                        <div class="level-badge" id="levelBadge" title="Level up with every quest!">
+                            <span class="lv-label">LV</span>
+                            <span class="lv-num" id="lvNum">1</span>
+                        </div>
+                    </div>
+
+                    <div class="identity-block">
+                        <div class="identity-eyebrow">Hero Name</div>
+                        <h1 class="hero-name">HAIDER</h1>
+                        <div class="hero-class"><span class="class-gem"></span>Tech Adventurer<span class="class-gem"></span></div>
+                    </div>
+
+                    <div class="origin-row">
+                        <span class="origin-key">Origin:</span>
+                        <span class="origin-val">Karachi · Pakistan</span>
+                    </div>
+
+                    <div class="vitals-block">
+                        <div class="vital">
+                            <div class="vital-meta"><span class="vital-abbr vital-abbr--hp">HP</span><span class="vital-name">Determination</span></div>
+                            <div class="bar-track"><div class="bar-fill bar-hp" data-w="95"></div></div>
+                            <span class="vital-val">95 / 100</span>
+                        </div>
+                        <div class="vital">
+                            <div class="vital-meta"><span class="vital-abbr vital-abbr--sp">SP</span><span class="vital-name">Curiosity</span></div>
+                            <div class="bar-track"><div class="bar-fill bar-sp" data-w="88"></div></div>
+                            <span class="vital-val">88 / 100</span>
+                        </div>
+                        <div class="vital">
+                            <div class="vital-meta"><span class="vital-abbr vital-abbr--xp">XP</span><span class="vital-name">Progress</span></div>
+                            <div class="bar-track"><div class="bar-fill bar-xp" data-w="18"></div></div>
+                            <span class="vital-val">18 / 100</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- RIGHT -->
+                <section class="stats-column">
+
+                    <!-- Lore -->
+                    <div class="panel lore-panel">
+                        <div class="panel-label">Origin Story</div>
+                        <p class="lore-text" id="loreText"></p>
+                        <span class="lore-cursor" id="loreCursor">▌</span>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="panel">
+                        <div class="panel-label">Chronicles of Learning</div>
+                        <div class="education-list">
+
+                            <div class="edu-entry">
+                                <div class="edu-header">
+                                    <div class="edu-icon-wrap">
+                                        <!-- University cap -->
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="edu-svg">
+                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="edu-inst">Sir Syed University of Engineering &amp; Technology</div>
+                                        <div class="edu-degree">B.S. Computer Science</div>
+                                    </div>
+                                    <span class="edu-year">2019 – 2023</span>
+                                </div>
+                                <div class="edu-loc">University Road, Karachi</div>
+                            </div>
+
+                            <div class="edu-entry">
+                                <div class="edu-header">
+                                    <div class="edu-icon-wrap">
+                                        <!-- Scroll / FSC -->
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="edu-svg">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="edu-inst">Government Delhi College</div>
+                                        <div class="edu-degree">FSC — Pre-Engineering</div>
+                                    </div>
+                                    <span class="edu-year">2016 – 2018</span>
+                                </div>
+                                <div class="edu-loc">Hussainabad, Karachi</div>
+                            </div>
+
+                            <div class="edu-entry">
+                                <div class="edu-header">
+                                    <div class="edu-icon-wrap">
+                                        <!-- Shield / SSC -->
+                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="edu-svg">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="edu-inst">C.A.A. Model School 2</div>
+                                        <div class="edu-degree">SSC — Matriculation</div>
+                                    </div>
+                                    <span class="edu-year">– 2016</span>
+                                </div>
+                                <div class="edu-loc">C.A.A. Colony, Shah Faisal Town, Karachi</div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="panel">
+                        <div class="panel-label">Skill Tree</div>
+                        <div class="abilities-grid">
+
+                            <!-- Data Visualization: bar chart -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">Data Visualization</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-a">A</span>
+                            </div>
+
+                            <!-- HTML/CSS/JS: code tag -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">HTML / CSS / JS</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-b">B</span>
+                            </div>
+
+                            <!-- Python & SQLite3: terminal/console -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="3" width="20" height="18" rx="2"/><polyline points="8 10 12 14 8 18"/><line x1="14" y1="18" x2="20" y2="18"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">Python &amp; SQLite3</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-b">B</span>
+                            </div>
+
+                            <!-- Digital Marketing & SEO: megaphone with signal waves -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">Digital Marketing &amp; SEO</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-a">A</span>
+                            </div>
+
+                            <!-- Customer Service: headset -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+                                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/>
+                                        <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">Customer Service</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-s">S</span>
+                            </div>
+
+                            <!-- AI & Prompt Engineering: sparkles / wand -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">AI &amp; Prompt Engineering</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-a">A</span>
+                            </div>
+
+                            <!-- MS Office / Data Entry: grid/spreadsheet -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                        <line x1="3" y1="9" x2="21" y2="9"/>
+                                        <line x1="3" y1="15" x2="21" y2="15"/>
+                                        <line x1="9" y1="3" x2="9" y2="21"/>
+                                        <line x1="15" y1="3" x2="15" y2="21"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">MS Office &amp; Data Entry</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-s">S</span>
+                            </div>
+
+                            <!-- Documentation / Report Writing: clipboard -->
+                            <div class="ability-card">
+                                <div class="ability-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+                                        <rect x="9" y="3" width="6" height="4" rx="1"/>
+                                        <line x1="9" y1="12" x2="15" y2="12"/>
+                                        <line x1="9" y1="16" x2="13" y2="16"/>
+                                    </svg>
+                                </div>
+                                <div class="ability-body">
+                                    <div class="ability-name">Documentation &amp; Reports</div>
+                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
+                                </div>
+                                <span class="ability-rank rank-a">A</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Experience — role first -->
+                    <div class="panel">
+                        <div class="panel-label">Quest History</div>
+                        <div class="exp-list">
+                            <div class="exp-entry">
+                                <div class="exp-header">
+                                    <div>
+                                        <div class="exp-role">Customer Service Representative</div>
+                                        <div class="exp-company">Ibex — Walmart International Campaign</div>
+                                    </div>
+                                    <span class="exp-date">Feb 2024 – Feb 2025</span>
+                                </div>
+                                <ul class="exp-bullets">
+                                    <li>Assisted 60+ customer queries daily with professional resolution</li>
+                                    <li>Documented issues into back-office templates accurately</li>
+                                    <li>Collaborated with QA, supervisors, and support teams</li>
+                                    <li>Maintained service quality under high-volume pressure</li>
+                                </ul>
+                            </div>
+                            <div class="exp-entry">
+                                <div class="exp-header">
+                                    <div>
+                                        <div class="exp-role">Junior Data Analyst</div>
+                                        <div class="exp-company">C.N.C.D Health Care Center</div>
+                                    </div>
+                                    <span class="exp-date">Apr 2023 – Oct 2023</span>
+                                </div>
+                                <ul class="exp-bullets">
+                                    <li>Used Python and SQLite3 to clean and prepare data for reports</li>
+                                    <li>Prepared reports and summaries to support management decisions</li>
+                                    <li>Maintained secure handling of sensitive organisational data</li>
+                                    <li>Coordinated file sharing between departments</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Publication -->
+                    <div class="panel">
+                        <div class="panel-label">Rare Item — IEEE Publication</div>
+                        <div class="pub-card">
+                            <div class="pub-gem">◆</div>
+                            <div class="pub-body">
+                                <div class="pub-title">A Peer-to-Peer Tutoring Marketplace</div>
+                                <div class="pub-meta">Published in IEEE · 2023</div>
+                                <p class="pub-desc">Designed a platform connecting students with local tutors, bridging the gap between learners and educators through technology.</p>
+                                <a href="https://ieeexplore.ieee.org/document/10064660" target="_blank" rel="noopener" class="pub-link">View on IEEE Explorer →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Titles -->
+                    <div class="panel">
+                        <div class="panel-label">Titles Earned</div>
+                        <div class="titles-list">
+                            <div class="title-row title-active">
+                                <span class="title-glyph">⛨</span>
+                                <span class="title-text">The Rising Developer — Forging skills from Lv.1</span>
+                                <span class="title-status status-active">Active</span>
+                            </div>
+                            <div class="title-row">
+                                <span class="title-glyph">✦</span>
+                                <span class="title-text">Published Researcher — IEEE 2023</span>
+                                <span class="title-status status-active">Earned</span>
+                            </div>
+                            <div class="title-row">
+                                <span class="title-glyph">◈</span>
+                                <span class="title-text">Data Guardian — Health Care Analytics</span>
+                                <span class="title-status status-active">Earned</span>
+                            </div>
+                            <div class="title-row title-sealed">
+                                <span class="title-glyph">◈</span>
+                                <span class="title-text">Full-Stack Mage — Django &amp; Android/Kotlin</span>
+                                <span class="title-status status-locked">Locked</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div><!-- /content-grid -->
+
+            <div class="ornamental-divider" aria-hidden="true">
+                <div class="orn-line"></div>
+                <svg viewBox="0 0 100 22" width="100" height="22" fill="none"><line x1="0" y1="11" x2="34" y2="11" stroke="#b8860b" stroke-width="1"/><polygon points="38,3 62,3 68,11 62,19 38,19 32,11" stroke="#b8860b" stroke-width="1.2"/><circle cx="50" cy="11" r="3.2" fill="#b8860b"/><line x1="66" y1="11" x2="100" y2="11" stroke="#b8860b" stroke-width="1"/></svg>
+                <div class="orn-line"></div>
+            </div>
+
+            <!-- Roadmap -->
+            <div class="roadmap-section">
+                <div class="panel-label" style="padding: 0 52px 16px;">Learning Roadmap</div>
+                <div class="roadmap-grid roadmap-grid--5">
+                    <div class="road-card road-active">
+                        <div class="road-status">In Progress</div>
+                        <div class="road-skills">Frontend Development</div>
+                        <div class="road-tags">HTML · CSS · JavaScript · Git · React</div>
+                        <div class="road-note">Currently building projects and strengthening core web fundamentals</div>
+                    </div>
+                    <div class="road-card road-future">
+                        <div class="road-status">Planned</div>
+                        <div class="road-skills">Backend &amp; AI</div>
+                        <div class="road-tags">Python · AI · Django</div>
+                        <div class="road-note">Plan to move into backend development and applied AI once frontend is solid</div>
+                    </div>
+                    <div class="road-card road-future">
+                        <div class="road-status">Planned</div>
+                        <div class="road-skills">Mobile Development</div>
+                        <div class="road-tags">Kotlin · Android Jetpack Compose</div>
+                        <div class="road-note">Interested in building native Android apps</div>
+                    </div>
+                    <div class="road-card road-future">
+                        <div class="road-status">Planned</div>
+                        <div class="road-skills">AI Automation</div>
+                        <div class="road-tags">n8n · AI Agents</div>
+                        <div class="road-note">Exploring workflow automation and AI-driven tools</div>
+                    </div>
+                    <div class="road-card road-future">
+                        <div class="road-status">Planned</div>
+                        <div class="road-skills">E-commerce</div>
+                        <div class="road-tags">Shopify · E-commerce Development</div>
+                        <div class="road-note">Looking to develop skills in Shopify store building and e-commerce</div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="window-footer">
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+                <span class="footer-text">Syed Murtaza Haider &nbsp;·&nbsp; Rising from Lv.1 &nbsp;·&nbsp; The journey has just begun</span>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+            </footer>
+        </div>
+        </div><!-- /tab-about -->
+
+
+        <!-- ══════ PROJECTS ══════ -->
+        <div class="tab-panel" id="tab-projects">
+        <div class="status-window">
+            <div class="window-chrome" aria-hidden="true">
+                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+            </div>
+            <header class="window-header">
+                <div class="header-rule"></div>
+                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">QUEST LOG — PROJECTS</span><span class="header-brace">⟫</span></div>
+                <div class="header-rule"></div>
+            </header>
+
+            <div class="projects-body">
+
+                <!-- Tech -->
+                <div class="ornamental-divider" style="padding:0; margin-bottom:20px;">
+                    <div class="orn-line"></div>
+                    <div class="proj-section-tag">⚔ Tech Quests</div>
+                    <div class="orn-line"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img-wrap"><div class="project-img-placeholder"><span class="proj-placeholder-icon">◈</span><span class="proj-placeholder-text">Add Project Image</span></div></div>
+                        <div class="project-content">
+                            <div class="project-type-tag">Tech</div>
+                            <h3 class="project-name">Project Name Here</h3>
+                            <p class="project-desc">Add your project description here. What does it do? What tech did you use? What problem does it solve?</p>
+                            <a href="#" class="proj-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrap"><div class="project-img-placeholder"><span class="proj-placeholder-icon">◈</span><span class="proj-placeholder-text">Add Project Image</span></div></div>
+                        <div class="project-content">
+                            <div class="project-type-tag">Tech</div>
+                            <h3 class="project-name">Project Name Here</h3>
+                            <p class="project-desc">Add your project description here. What does it do? What tech did you use? What problem does it solve?</p>
+                            <a href="#" class="proj-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrap"><div class="project-img-placeholder"><span class="proj-placeholder-icon">◈</span><span class="proj-placeholder-text">Add Project Image</span></div></div>
+                        <div class="project-content">
+                            <div class="project-type-tag">Research</div>
+                            <h3 class="project-name">Peer-to-Peer Tutoring Marketplace</h3>
+                            <p class="project-desc">An IEEE-published platform connecting students with local tutors, bridging the gap between learners and educators through technology.</p>
+                            <a href="https://ieeexplore.ieee.org/document/10064660" target="_blank" rel="noopener" class="proj-link">View on IEEE →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Non-Tech -->
+                <div class="ornamental-divider" style="padding:0; margin:32px 0 20px;">
+                    <div class="orn-line"></div>
+                    <div class="proj-section-tag proj-section-tag--alt">✦ Non-Tech Quests</div>
+                    <div class="orn-line"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card project-card--alt">
+                        <div class="project-img-wrap"><div class="project-img-placeholder project-img-placeholder--alt"><span class="proj-placeholder-icon">✦</span><span class="proj-placeholder-text">Add Project Image</span></div></div>
+                        <div class="project-content">
+                            <div class="project-type-tag project-type-tag--alt">Non-Tech</div>
+                            <h3 class="project-name">Project Name Here</h3>
+                            <p class="project-desc">Add your non-tech project description. Could be a marketing campaign, a community initiative, or any other creative work.</p>
+                            <a href="#" class="proj-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-card project-card--alt">
+                        <div class="project-img-wrap"><div class="project-img-placeholder project-img-placeholder--alt"><span class="proj-placeholder-icon">✦</span><span class="proj-placeholder-text">Add Project Image</span></div></div>
+                        <div class="project-content">
+                            <div class="project-type-tag project-type-tag--alt">Non-Tech</div>
+                            <h3 class="project-name">Project Name Here</h3>
+                            <p class="project-desc">Add your non-tech project description. Could be a marketing campaign, a community initiative, or any other creative work.</p>
+                            <a href="#" class="proj-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Quests / Courses -->
+                <div class="ornamental-divider" style="padding:0; margin:32px 0 20px;">
+                    <div class="orn-line"></div>
+                    <div class="proj-section-tag proj-section-tag--prev">📜 Previous Quests — Courses Completed</div>
+                    <div class="orn-line"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card project-card--prev">
+                        <div class="project-img-wrap"><div class="project-img-placeholder project-img-placeholder--prev"><span class="proj-placeholder-icon">📜</span><span class="proj-placeholder-text">Add Course Image</span></div></div>
+                        <div class="project-content">
+                            <div class="project-type-tag project-type-tag--prev">Course</div>
+                            <h3 class="project-name">Digital Marketing &amp; SEO</h3>
+                            <p class="project-desc">Completed a structured course covering search engine optimisation, content strategy, digital advertising, and campaign analytics for real-world marketing goals.</p>
+                            <div class="proj-provider">NED Academy — PITP</div>
+                            <a href="#" class="proj-link">View Certificate →</a>
+                        </div>
+                    </div>
+                    <div class="project-card project-card--prev">
+                        <div class="project-img-wrap"><div class="project-img-placeholder project-img-placeholder--prev"><span class="proj-placeholder-icon">📜</span><span class="proj-placeholder-text">Add Course Image</span></div></div>
+                        <div class="project-content">
+                            <div class="project-type-tag project-type-tag--prev">Course</div>
+                            <h3 class="project-name">Course Name Here</h3>
+                            <p class="project-desc">Add the course description here. What did you learn? What skills did it unlock?</p>
+                            <div class="proj-provider">Institution Name</div>
+                            <a href="#" class="proj-link">View Certificate →</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /projects-body -->
+
+            <footer class="window-footer">
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+                <span class="footer-text">More quests incoming — the adventure continues</span>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+            </footer>
+        </div>
+        </div><!-- /tab-projects -->
+
+
+        <!-- ══════ CONTACT ══════ -->
+        <div class="tab-panel" id="tab-contact">
+        <div class="status-window">
+            <div class="window-chrome" aria-hidden="true">
+                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+            </div>
+            <header class="window-header">
+                <div class="header-rule"></div>
+                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">SEND A RAVEN — CONTACT</span><span class="header-brace">⟫</span></div>
+                <div class="header-rule"></div>
+            </header>
+
+            <div class="contact-body">
+                <div class="contact-lore"><p>The shield bearer is open to alliances, guild quests, and new adventures. Choose your preferred channel to make contact.</p></div>
+
+                <div class="contact-cards">
+                    <a href="tel:+923363529384" class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-hi)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-body">
+                            <div class="contact-card-label">Phone</div>
+                            <div class="contact-card-value">+92-336-3529384</div>
+                            <div class="contact-card-sub">Click to call</div>
+                        </div>
+                        <span class="contact-arrow">→</span>
+                    </a>
+                    <a href="mailto:haiderali_zaidi@outlook.com" class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-hi)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-body">
+                            <div class="contact-card-label">Email</div>
+                            <div class="contact-card-value">haiderali_zaidi@outlook.com</div>
+                            <div class="contact-card-sub">Send a scroll</div>
+                        </div>
+                        <span class="contact-arrow">→</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/s-m-haider15/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="var(--gold-hi)">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-body">
+                            <div class="contact-card-label">LinkedIn</div>
+                            <div class="contact-card-value">linkedin.com/in/s-m-haider15</div>
+                            <div class="contact-card-sub">Join the party</div>
+                        </div>
+                        <span class="contact-arrow">→</span>
+                    </a>
+                    <div class="contact-card contact-card--dimmed">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-hi)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-body">
+                            <div class="contact-card-label">GitHub</div>
+                            <div class="contact-card-value">Coming soon…</div>
+                            <div class="contact-card-sub">Unlocking soon</div>
+                        </div>
+                        <span class="contact-arrow locked-arrow">🔒</span>
+                    </div>
+                </div>
+
+                <div class="ornamental-divider" style="margin: 32px 0;">
+                    <div class="orn-line"></div>
+                    <svg viewBox="0 0 100 22" width="100" height="22" fill="none"><line x1="0" y1="11" x2="34" y2="11" stroke="#b8860b" stroke-width="1"/><polygon points="38,3 62,3 68,11 62,19 38,19 32,11" stroke="#b8860b" stroke-width="1.2"/><circle cx="50" cy="11" r="3.2" fill="#b8860b"/><line x1="66" y1="11" x2="100" y2="11" stroke="#b8860b" stroke-width="1"/></svg>
+                    <div class="orn-line"></div>
+                </div>
+
+                <!-- Message form — powered by EmailJS (free, no backend) -->
+                <div class="contact-form-wrap">
+                    <h2 class="quest-heading">Send a Message</h2>
+                    <p class="quest-body">Fill in the form below and I'll receive your message directly in my inbox.</p>
+                    <div class="emailjs-notice" id="emailjsNotice">
+                        <span class="notice-icon">ℹ</span>
+                        <span>To activate this form, add your <strong>EmailJS</strong> credentials in <code>index.js</code> — see the comments there. It's free and takes 2 minutes.</span>
+                    </div>
+                    <div class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="cfName">Your Name</label>
+                                <input type="text" id="cfName" name="from_name" placeholder="e.g. Ali Khan" class="scroll-input" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cfEmail">Your Email</label>
+                                <input type="email" id="cfEmail" name="reply_to" placeholder="you@example.com" class="scroll-input" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label class="form-label" for="cfSubject">Subject</label>
+                            <input type="text" id="cfSubject" name="subject" placeholder="What's this about?" class="scroll-input">
+                        </div>
+                        <div class="form-group" style="margin-top:10px;">
+                            <label class="form-label" for="cfMsg">Message</label>
+                            <textarea id="cfMsg" name="message" placeholder="Write your message here…" class="scroll-input scroll-textarea" rows="5" style="resize:vertical;"></textarea>
+                        </div>
+                        <div style="margin-top:14px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+                            <button type="button" id="cfSend" class="cta-btn cta-primary">Send Message</button>
+                            <div class="form-feedback" id="cfFeedback" role="alert"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="window-footer">
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+                <span class="footer-text">Syed Murtaza Haider &nbsp;·&nbsp; Karachi, Pakistan &nbsp;·&nbsp; Available for new quests</span>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+            </footer>
+        </div>
+        </div><!-- /tab-contact -->
+
+    </main>
+    <!-- EmailJS SDK (free email delivery, no backend needed) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
