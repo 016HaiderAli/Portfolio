@@ -9,9 +9,9 @@
    5. Paste the three values below and remove the notice banner
    ═══════════════════════════════════════════════════════════ */
 
-var EMAILJS_PUBLIC_KEY  = '';   // e.g. 'abc123XYZ'
-var EMAILJS_SERVICE_ID  = '';   // e.g. 'service_xxxxxxx'
-var EMAILJS_TEMPLATE_ID = '';   // e.g. 'template_xxxxxxx'
+var EMAILJS_PUBLIC_KEY  = 'B_WUxBQ7r873qqwjz';   // e.g. 'abc123XYZ'
+var EMAILJS_SERVICE_ID  = 'service_grmq7t6';   // e.g. 'service_xxxxxxx'
+var EMAILJS_TEMPLATE_ID = 'template_4q661kc';   // e.g. 'template_xxxxxxx'
 
 var LORE =
     'A Computer Science graduate from Karachi, Pakistan, with a background in customer ' +
