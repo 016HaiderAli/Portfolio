@@ -21,40 +21,88 @@ var LORE =
 /* ─── THEME PICKER ─── */
 var currentTheme = localStorage.getItem('smh-theme') || 'dark';
 
+var THEME_META = {
+    dark:    { icon: '🌙', label: 'Dark' },
+    light:   { icon: '☀',  label: 'Light' },
+    color:   { icon: '◈',  label: 'Night Owl' },
+    phantom: { icon: '♠',  label: 'Phantom' },
+    shield:  { icon: '🛡', label: 'Shield' }
+};
+
 function applyTheme(theme) {
-    document.body.classList.remove('theme-light', 'theme-color');
-    if (theme === 'light') document.body.classList.add('theme-light');
-    if (theme === 'color') document.body.classList.add('theme-color');
+    document.body.classList.remove('theme-light', 'theme-color', 'theme-phantom', 'theme-shield');
+    if (theme === 'light')   document.body.classList.add('theme-light');
+    if (theme === 'color')   document.body.classList.add('theme-color');
+    if (theme === 'phantom') document.body.classList.add('theme-phantom');
+    if (theme === 'shield')  document.body.classList.add('theme-shield');
     currentTheme = theme;
     localStorage.setItem('smh-theme', theme);
 
-    document.querySelectorAll('.theme-opt').forEach(function(btn) {
-        btn.classList.toggle('theme-opt--active', btn.getAttribute('data-theme') === theme);
+    var meta = THEME_META[theme] || THEME_META.dark;
+    var iconEl  = document.getElementById('themeTriggerIcon');
+    var labelEl = document.getElementById('themeTriggerLabel');
+    if (iconEl)  iconEl.textContent  = meta.icon;
+    if (labelEl) labelEl.textContent = meta.label;
+
+    document.querySelectorAll('.theme-menu-item').forEach(function(btn) {
+        btn.classList.toggle('theme-menu-item--active', btn.getAttribute('data-theme') === theme);
     });
 }
 
 function initThemePicker() {
     applyTheme(currentTheme);
-    document.querySelectorAll('.theme-opt').forEach(function(btn) {
+
+    var dropdown = document.getElementById('themeDropdown');
+    var trigger  = document.getElementById('themeTrigger');
+    if (!dropdown || !trigger) return;
+
+    function closeMenu() {
+        dropdown.classList.remove('theme-dropdown--open');
+        trigger.setAttribute('aria-expanded', 'false');
+    }
+    function toggleMenu() {
+        var isOpen = dropdown.classList.toggle('theme-dropdown--open');
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    document.querySelectorAll('.theme-menu-item').forEach(function(btn) {
         btn.addEventListener('click', function() {
             applyTheme(btn.getAttribute('data-theme'));
+            closeMenu();
         });
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) closeMenu();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
     });
 }
 
 /* ─── TAB SWITCHING ─── */
-function initTabs() {
+function switchTab(target) {
     var buttons = document.querySelectorAll('.tab-btn');
     var panels  = document.querySelectorAll('.tab-panel');
+    buttons.forEach(function(b) { b.classList.remove('tab-active'); });
+    panels.forEach(function(p)  { p.classList.remove('tab-panel--active'); });
+    var btn = document.querySelector('.tab-btn[data-tab="' + target + '"]');
+    if (btn) btn.classList.add('tab-active');
+    var panel = document.getElementById('tab-' + target);
+    if (panel) panel.classList.add('tab-panel--active');
+    if (target === 'about') setTimeout(animateBars, 100);
+}
+
+function initTabs() {
+    var buttons = document.querySelectorAll('.tab-btn');
     buttons.forEach(function(btn) {
         btn.addEventListener('click', function() {
-            var target = btn.getAttribute('data-tab');
-            buttons.forEach(function(b) { b.classList.remove('tab-active'); });
-            panels.forEach(function(p)  { p.classList.remove('tab-panel--active'); });
-            btn.classList.add('tab-active');
-            var panel = document.getElementById('tab-' + target);
-            if (panel) panel.classList.add('tab-panel--active');
-            if (target === 'about') setTimeout(animateBars, 100);
+            switchTab(btn.getAttribute('data-tab'));
         });
     });
 }
@@ -99,24 +147,6 @@ function spawnParticles() {
     }
 }
 
-/* ─── LEVEL BADGE ─── */
-function initLevelBadge() {
-    var badge = document.getElementById('levelBadge');
-    var lvNum = document.getElementById('lvNum');
-    if (!badge || !lvNum) return;
-    lvNum.style.transition = 'all 0.35s ease';
-    badge.addEventListener('click', function() {
-        lvNum.style.transform  = 'scale(1.5)';
-        lvNum.style.color      = '#ffffff';
-        lvNum.style.textShadow = '0 0 24px rgba(240,192,64,1)';
-        setTimeout(function() {
-            lvNum.style.transform  = '';
-            lvNum.style.color      = '';
-            lvNum.style.textShadow = '';
-        }, 650);
-    });
-}
-
 /* ─── PORTRAIT TILT ─── */
 function initPortraitTilt() {
     var frame = document.getElementById('portraitFrame');
@@ -144,7 +174,9 @@ function initContactForm() {
     // Hide notice banner once credentials are set
     if (EMAILJS_PUBLIC_KEY && EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID) {
         if (notice) notice.classList.add('hidden');
-        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+        }
     }
 
     btn.addEventListener('click', function() {
@@ -171,6 +203,11 @@ function initContactForm() {
         if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
             feedback.style.color = 'var(--crimson-hi)';
             feedback.textContent = 'EmailJS is not configured yet. See the comments in index.js.';
+            return;
+        }
+        if (typeof emailjs === 'undefined') {
+            feedback.style.color = 'var(--crimson-hi)';
+            feedback.textContent = 'Message service unavailable right now — please email directly: haiderali_zaidi@outlook.com';
             return;
         }
 
@@ -200,15 +237,268 @@ function initContactForm() {
     });
 }
 
+/* ─── VOICE SHOWROOM ─── */
+var currentAudio    = null;
+var currentPlayBtn  = null;
+var currentCard     = null;
+var currentRAF      = null;
+
+var audioCtx        = null;   // shared AudioContext (created on first user gesture)
+var analyserMap     = new Map(); // audio element -> { analyser, source, dataArray }
+
+function getAudioContext() {
+    if (!audioCtx) {
+        var AC = window.AudioContext || window.webkitAudioContext;
+        if (AC) audioCtx = new AC();
+    }
+    return audioCtx;
+}
+
+function getAnalyserFor(audio) {
+    if (analyserMap.has(audio)) return analyserMap.get(audio);
+    var ctx = getAudioContext();
+    if (!ctx) return null;
+    try {
+        var source   = ctx.createMediaElementSource(audio);
+        var analyser = ctx.createAnalyser();
+        analyser.fftSize = 64;
+        analyser.smoothingTimeConstant = 0.75;
+        source.connect(analyser);
+        analyser.connect(ctx.destination);
+        var dataArray = new Uint8Array(analyser.frequencyBinCount);
+        var entry = { analyser: analyser, dataArray: dataArray };
+        analyserMap.set(audio, entry);
+        return entry;
+    } catch (err) {
+        console.warn('Web Audio analyser unavailable:', err);
+        return null;
+    }
+}
+
+/* Draw sharp, high-contrast vertical bars — mirrored top/bottom, Persona-style */
+function drawBars(canvas, heights, playing) {
+    var ctx = canvas.getContext('2d');
+    var w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+
+    var barCount = heights.length;
+    var gap = 3;
+    var barWidth = (w - gap * (barCount - 1)) / barCount;
+    var midY = h / 2;
+    var capH = Math.max(2, h * 0.045);
+
+    for (var i = 0; i < barCount; i++) {
+        var amp = heights[i];                 // 0..1
+        var barH = Math.max(2, amp * (h * 0.92));
+        var x = i * (barWidth + gap);
+
+        // Idle bars: soft neutral white/gray. Playing bars: white base that warms
+        // into the site's gold accent at higher amplitude — calmer than a full
+        // gold→orange→red ramp, and reads cleanly on the dark waveform background.
+        var hot = amp > 0.6;
+        var barColor = playing
+            ? (hot ? '#f0c040' /* gold-hi, "played"/peak accent */ : 'rgba(232,230,224,0.78)')
+            : 'rgba(232,230,224,0.22)';
+        ctx.fillStyle = barColor;
+
+        // top half
+        ctx.fillRect(x, midY - barH / 2, barWidth, barH / 2);
+        // bottom half (mirrored, slightly dimmer)
+        ctx.globalAlpha = 0.55;
+        ctx.fillRect(x, midY, barWidth, barH / 2);
+        ctx.globalAlpha = 1;
+
+        // Bright gold peak cap at the tip of each bar when playing and amplitude is
+        // meaningful — keeps a single warm accent colour rather than a multi-hue ramp
+        if (playing && amp > 0.08) {
+            ctx.fillStyle = hot ? '#f0c040' : '#ffffff';
+            ctx.fillRect(x, midY - barH / 2 - capH * 0.4, barWidth, capH);
+            ctx.fillRect(x, midY + barH / 2 - capH * 0.6, barWidth, capH);
+        }
+    }
+}
+
+/* Idle animation: gentle synthetic shimmer so empty/paused cards still feel alive */
+function drawIdle(canvas, t) {
+    var barCount = 28;
+    var heights = [];
+    for (var i = 0; i < barCount; i++) {
+        var v = 0.08 + 0.05 * Math.sin(t / 600 + i * 0.6);
+        heights.push(Math.max(0.04, v));
+    }
+    drawBars(canvas, heights, false);
+}
+
+/* Real playback animation: read live frequency data, with a synthetic fallback
+   if the audio file is missing/can't decode (so the UI still looks correct). */
+function animateWaveform(card, audio) {
+    var canvas = card.querySelector('.waveform-canvas');
+    if (!canvas) return;
+    syncCanvasSize(canvas);
+
+    var barCount = 28;
+    var entry = getAnalyserFor(audio);
+
+    function tick(t) {
+        if (currentAudio !== audio) return; // stopped/switched — halt this loop
+
+        var heights = [];
+        if (entry) {
+            entry.analyser.getByteFrequencyData(entry.dataArray);
+            var bins = entry.dataArray.length;
+            var step = bins / barCount;
+            for (var i = 0; i < barCount; i++) {
+                var idx = Math.floor(i * step);
+                heights.push(entry.dataArray[idx] / 255);
+            }
+        } else {
+            // Fallback: synthetic but energetic motion so it still reads as "live"
+            for (var i = 0; i < barCount; i++) {
+                var v = 0.25 + 0.65 * Math.abs(Math.sin(t / 140 + i * 0.45)) * Math.random();
+                heights.push(Math.min(1, v));
+            }
+        }
+
+        drawBars(canvas, heights, true);
+        currentRAF = requestAnimationFrame(tick);
+    }
+    currentRAF = requestAnimationFrame(tick);
+}
+
+function stopCurrentAudio() {
+    if (currentRAF) {
+        cancelAnimationFrame(currentRAF);
+        currentRAF = null;
+    }
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    if (currentPlayBtn) {
+        currentPlayBtn.classList.remove('play-btn--playing');
+        var playIcon  = currentPlayBtn.querySelector('.icon-play');
+        var pauseIcon = currentPlayBtn.querySelector('.icon-pause');
+        if (playIcon)  playIcon.style.display  = '';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+    }
+    if (currentCard) {
+        currentCard.classList.remove('voice-card--playing');
+        var canvas = currentCard.querySelector('.waveform-canvas');
+        if (canvas) drawBars(canvas, new Array(28).fill(0.05), false);
+    }
+    currentAudio   = null;
+    currentPlayBtn = null;
+    currentCard    = null;
+}
+
+/* Keep canvas backing resolution crisp at any rendered width (HiDPI aware) */
+function syncCanvasSize(canvas) {
+    var rect = canvas.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+    var dpr = window.devicePixelRatio || 1;
+    var targetW = Math.round(rect.width * dpr);
+    var targetH = Math.round(rect.height * dpr);
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+        canvas.width  = targetW;
+        canvas.height = targetH;
+    }
+}
+
+function initVoiceShowroom() {
+    // Idle shimmer for every card's canvas before anything plays
+    var idleStart = performance.now();
+    function idleLoop(now) {
+        document.querySelectorAll('.voice-card:not(.voice-card--playing) .waveform-canvas').forEach(function(canvas) {
+            syncCanvasSize(canvas);
+            drawIdle(canvas, now - idleStart);
+        });
+        requestAnimationFrame(idleLoop);
+    }
+    requestAnimationFrame(idleLoop);
+
+    var playButtons = document.querySelectorAll('.play-btn');
+    playButtons.forEach(function(btn) {
+        var audioId = btn.getAttribute('data-audio');
+        var audio   = document.getElementById(audioId);
+        if (!audio) return;
+
+        var card      = btn.closest('.voice-card');
+        var playIcon  = btn.querySelector('.icon-play');
+        var pauseIcon = btn.querySelector('.icon-pause');
+
+        btn.addEventListener('click', function() {
+            var ctx = getAudioContext();
+            if (ctx && ctx.state === 'suspended') ctx.resume();
+
+            // If this audio is already playing, pause it
+            if (currentAudio === audio && !audio.paused) {
+                stopCurrentAudio();
+                return;
+            }
+            // Stop whatever else is playing first
+            stopCurrentAudio();
+
+            audio.play().then(function() {
+                currentAudio   = audio;
+                currentPlayBtn = btn;
+                currentCard    = card;
+                btn.classList.add('play-btn--playing');
+                if (card) card.classList.add('voice-card--playing');
+                if (playIcon)  playIcon.style.display  = 'none';
+                if (pauseIcon) pauseIcon.style.display = '';
+                animateWaveform(card, audio);
+            }).catch(function(err) {
+                console.warn('Audio could not play (sample may be missing):', audioId, err);
+                // Still show a brief "live" animation so the showroom feels functional
+                currentAudio   = audio;
+                currentPlayBtn = btn;
+                currentCard    = card;
+                btn.classList.add('play-btn--playing');
+                if (card) card.classList.add('voice-card--playing');
+                if (playIcon)  playIcon.style.display  = 'none';
+                if (pauseIcon) pauseIcon.style.display = '';
+                animateWaveform(card, audio);
+                setTimeout(function() {
+                    if (currentAudio === audio) stopCurrentAudio();
+                }, 3500);
+            });
+        });
+
+        audio.addEventListener('ended', function() {
+            if (currentAudio === audio) stopCurrentAudio();
+        });
+    });
+
+    // Language filters
+    var filterButtons = document.querySelectorAll('.filter-btn');
+    var voiceCards     = document.querySelectorAll('.voice-card');
+
+    filterButtons.forEach(function(fbtn) {
+        fbtn.addEventListener('click', function() {
+            var lang = fbtn.getAttribute('data-lang');
+
+            filterButtons.forEach(function(b) { b.classList.remove('filter-btn--active'); });
+            fbtn.classList.add('filter-btn--active');
+
+            voiceCards.forEach(function(card) {
+                var matches = (lang === 'all') || (card.getAttribute('data-lang') === lang);
+                card.classList.toggle('voice-card--hidden', !matches);
+            });
+
+            // Stop playback if the playing card just got hidden
+            if (currentCard && currentCard.classList.contains('voice-card--hidden')) {
+                stopCurrentAudio();
+            }
+        });
+    });
+}
+
 /* ─── BOOT ─── */
 document.addEventListener('DOMContentLoaded', function() {
-    initThemePicker();
-    spawnParticles();
-    animateBars();
-    initTabs();
-    initLevelBadge();
-    initPortraitTilt();
-    initContactForm();
+    var inits = [initThemePicker, spawnParticles, animateBars, initTabs, initPortraitTilt, initContactForm, initVoiceShowroom];
+    inits.forEach(function(fn) {
+        try { fn(); } catch (err) { console.error('Init failed:', fn.name, err); }
+    });
 
     setTimeout(function() {
         var textEl   = document.getElementById('loreText');

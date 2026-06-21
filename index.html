@@ -21,23 +21,38 @@
             </div>
             <div class="tab-list">
                 <button class="tab-btn tab-active" data-tab="about"><span class="tab-glyph">⛨</span> About</button>
-                <button class="tab-btn" data-tab="projects"><span class="tab-glyph">◈</span> Projects</button>
-                <button class="tab-btn" data-tab="contact"><span class="tab-glyph">✦</span> Contact</button>
+                <!-- <button class="tab-btn" data-tab="projects"><span class="tab-glyph">◈</span> Projects</button> -->
+                <button class="tab-btn" data-tab="voices"><span class="tab-glyph">🎙</span> Voice Showroom</button>
             </div>
             <!-- Theme picker -->
-            <div class="theme-picker" id="themePicker" role="group" aria-label="Choose colour theme">
-                <button class="theme-opt theme-opt--dark  theme-opt--active" data-theme="dark"  title="Dark mode">
-                    <span class="theme-opt-icon">🌙</span>
-                    <span class="theme-opt-label">Dark</span>
+            <div class="theme-dropdown" id="themeDropdown">
+                <button class="theme-trigger" id="themeTrigger" aria-haspopup="true" aria-expanded="false">
+                    <span class="theme-trigger-icon" id="themeTriggerIcon">🌙</span>
+                    <span class="theme-trigger-label" id="themeTriggerLabel">Dark</span>
+                    <span class="theme-trigger-caret">▾</span>
                 </button>
-                <button class="theme-opt theme-opt--light" data-theme="light" title="Light mode">
-                    <span class="theme-opt-icon">☀</span>
-                    <span class="theme-opt-label">Light</span>
-                </button>
-                <button class="theme-opt theme-opt--color" data-theme="color" title="Colour mode">
-                    <span class="theme-opt-icon">◈</span>
-                    <span class="theme-opt-label">Night Owl</span>
-                </button>
+                <div class="theme-menu" id="themeMenu" role="menu">
+                    <button class="theme-menu-item theme-menu-item--active" data-theme="dark" role="menuitem">
+                        <span class="theme-menu-icon">🌙</span>
+                        <span class="theme-menu-text">Dark</span>
+                    </button>
+                    <button class="theme-menu-item" data-theme="light" role="menuitem">
+                        <span class="theme-menu-icon">☀</span>
+                        <span class="theme-menu-text">Light</span>
+                    </button>
+                    <button class="theme-menu-item" data-theme="color" role="menuitem">
+                        <span class="theme-menu-icon">◈</span>
+                        <span class="theme-menu-text">Night Owl</span>
+                    </button>
+                    <button class="theme-menu-item" data-theme="phantom" role="menuitem">
+                        <span class="theme-menu-icon">♠</span>
+                        <span class="theme-menu-text">Phantom</span>
+                    </button>
+                    <button class="theme-menu-item" data-theme="shield" role="menuitem">
+                        <span class="theme-menu-icon">🛡</span>
+                        <span class="theme-menu-text">Shield</span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
@@ -49,15 +64,15 @@
         <div class="status-window" id="statusWindow">
 
             <div class="window-chrome" aria-hidden="true">
-                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="#b8860b" stroke-width="2"/><path d="M8 48 L8 8 L48 8" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="5" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="#b8860b" stroke-width="2"/><path d="M40 48 L40 8 L0 8" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="43" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="#b8860b" stroke-width="2"/><path d="M8 0 L8 40 L48 40" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="5" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="#b8860b" stroke-width="2"/><path d="M40 0 L40 40 L0 40" stroke="#b8860b" stroke-width="0.6" opacity="0.35"/><circle cx="43" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="var(--gold-rim)" stroke-width="2"/><path d="M8 48 L8 8 L48 8" stroke="var(--gold-rim)" stroke-width="0.6" opacity="0.35"/><circle cx="5" cy="5" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="var(--gold-rim)" stroke-width="2"/><path d="M40 48 L40 8 L0 8" stroke="var(--gold-rim)" stroke-width="0.6" opacity="0.35"/><circle cx="43" cy="5" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="var(--gold-rim)" stroke-width="2"/><path d="M8 0 L8 40 L48 40" stroke="var(--gold-rim)" stroke-width="0.6" opacity="0.35"/><circle cx="5" cy="43" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="var(--gold-rim)" stroke-width="2"/><path d="M40 0 L40 40 L0 40" stroke="var(--gold-rim)" stroke-width="0.6" opacity="0.35"/><circle cx="43" cy="43" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="var(--gold-hi)"/></svg></div>
             </div>
 
             <header class="window-header">
                 <div class="header-rule"></div>
-                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">CHARACTER STATUS</span><span class="header-brace">⟫</span></div>
+                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">PROFILE</span><span class="header-brace">⟫</span></div>
                 <div class="header-rule"></div>
             </header>
 
@@ -70,48 +85,68 @@
                         <div class="portrait-ring">
                             <img src="./mypic.png" alt="Syed Murtaza Haider" class="portrait-img" onerror="this.style.display='none'"/>
                         </div>
-                        <div class="shield-badge" title="Frontend Developer">
-                            <svg viewBox="0 0 56 66" width="32" height="38">
-                                <path d="M28 3 L53 13 L53 33 C53 50 28 63 28 63 C28 63 3 50 3 33 L3 13 Z" fill="#0e0d1c" stroke="#b8860b" stroke-width="2.2"/>
-                                <path d="M28 10 L46 18 L46 32 C46 45 28 56 28 56 C28 56 10 45 10 32 L10 18 Z" fill="#12111e" stroke="#7a5a10" stroke-width="1" opacity="0.8"/>
-                                <line x1="28" y1="11" x2="28" y2="54" stroke="#b8860b" stroke-width="1.4" opacity="0.45"/>
-                                <line x1="7" y1="29" x2="49" y2="29" stroke="#b8860b" stroke-width="1.4" opacity="0.45"/>
-                                <circle cx="28" cy="29" r="4.5" fill="none" stroke="#b8860b" stroke-width="1.2" opacity="0.7"/>
-                                <circle cx="28" cy="29" r="2" fill="#b8860b"/>
-                            </svg>
-                        </div>
-                        <div class="level-badge" id="levelBadge" title="Level up with every quest!">
-                            <span class="lv-label">LV</span>
-                            <span class="lv-num" id="lvNum">1</span>
-                        </div>
                     </div>
 
                     <div class="identity-block">
-                        <div class="identity-eyebrow">Hero Name</div>
                         <h1 class="hero-name">HAIDER</h1>
-                        <div class="hero-class"><span class="class-gem"></span>Tech Adventurer<span class="class-gem"></span></div>
+                        <div class="hero-class"><span class="class-gem"></span>Frontend Developer<span class="class-gem"></span></div>
                     </div>
 
-                    <div class="origin-row">
-                        <span class="origin-key">Origin:</span>
-                        <span class="origin-val">Karachi · Pakistan</span>
+                    <div class="id-card">
+                        <div class="id-card-slash"></div>
+                        <div class="id-card-row id-card-row--location">
+                            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Karachi, Pakistan</span>
+                        </div>
+                        <div class="id-card-row id-card-row--status">
+                            <span class="status-dot"></span>
+                            <span>Open to opportunities</span>
+                        </div>
                     </div>
 
-                    <div class="vitals-block">
-                        <div class="vital">
-                            <div class="vital-meta"><span class="vital-abbr vital-abbr--hp">HP</span><span class="vital-name">Determination</span></div>
-                            <div class="bar-track"><div class="bar-fill bar-hp" data-w="95"></div></div>
-                            <span class="vital-val">95 / 100</span>
+                    <div class="quick-socials">
+                        <a href="mailto:haiderali_zaidi@outlook.com" class="quick-social-btn" title="Email" aria-label="Email">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/s-m-haider15/" target="_blank" rel="noopener noreferrer" class="quick-social-btn" title="LinkedIn" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="tel:+923363529384" class="quick-social-btn" title="Phone" aria-label="Phone">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </a>
+                    </div>
+
+                    <a href="#sidebarContact" class="quick-cta" id="quickCta">
+                        <span class="quick-cta-text">Get in Touch</span>
+                        <span class="quick-cta-arrow">↓</span>
+                    </a>
+
+                    <!-- Contact form — moved here from the old Contact tab -->
+                    <div class="sidebar-contact panel" id="sidebarContact">
+                        <div class="panel-label">Send a Message</div>
+                        <div class="emailjs-notice" id="emailjsNotice">
+                            <span class="notice-icon">ℹ</span>
+                            <span>To activate this form, add your <strong>EmailJS</strong> credentials in <code>index.js</code> — see the comments there.</span>
                         </div>
-                        <div class="vital">
-                            <div class="vital-meta"><span class="vital-abbr vital-abbr--sp">SP</span><span class="vital-name">Curiosity</span></div>
-                            <div class="bar-track"><div class="bar-fill bar-sp" data-w="88"></div></div>
-                            <span class="vital-val">88 / 100</span>
-                        </div>
-                        <div class="vital">
-                            <div class="vital-meta"><span class="vital-abbr vital-abbr--xp">XP</span><span class="vital-name">Progress</span></div>
-                            <div class="bar-track"><div class="bar-fill bar-xp" data-w="18"></div></div>
-                            <span class="vital-val">18 / 100</span>
+                        <div class="contact-form sidebar-contact-form">
+                            <div class="form-group">
+                                <label class="form-label" for="cfName">Your Name</label>
+                                <input type="text" id="cfName" name="from_name" placeholder="e.g. Ali Khan" class="scroll-input" autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cfEmail">Your Email</label>
+                                <input type="email" id="cfEmail" name="reply_to" placeholder="you@example.com" class="scroll-input" autocomplete="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cfSubject">Subject</label>
+                                <input type="text" id="cfSubject" name="subject" placeholder="What's this about?" class="scroll-input">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="cfMsg">Message</label>
+                                <textarea id="cfMsg" name="message" placeholder="Write your message here…" class="scroll-input scroll-textarea" rows="4" style="resize:vertical;"></textarea>
+                            </div>
+                            <button type="button" id="cfSend" class="cta-btn cta-primary sidebar-send-btn">Send Message</button>
+                            <div class="form-feedback" id="cfFeedback" role="alert"></div>
                         </div>
                     </div>
                 </aside>
@@ -121,14 +156,14 @@
 
                     <!-- Lore -->
                     <div class="panel lore-panel">
-                        <div class="panel-label">Origin Story</div>
+                        <div class="panel-label">About</div>
                         <p class="lore-text" id="loreText"></p>
                         <span class="lore-cursor" id="loreCursor">▌</span>
                     </div>
 
                     <!-- Education -->
                     <div class="panel">
-                        <div class="panel-label">Chronicles of Learning</div>
+                        <div class="panel-label">Education</div>
                         <div class="education-list">
 
                             <div class="edu-entry">
@@ -148,61 +183,13 @@
                                 <div class="edu-loc">University Road, Karachi</div>
                             </div>
 
-                            <div class="edu-entry">
-                                <div class="edu-header">
-                                    <div class="edu-icon-wrap">
-                                        <!-- Scroll / FSC -->
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="edu-svg">
-                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="edu-inst">Government Delhi College</div>
-                                        <div class="edu-degree">FSC — Pre-Engineering</div>
-                                    </div>
-                                    <span class="edu-year">2016 – 2018</span>
-                                </div>
-                                <div class="edu-loc">Hussainabad, Karachi</div>
-                            </div>
-
-                            <div class="edu-entry">
-                                <div class="edu-header">
-                                    <div class="edu-icon-wrap">
-                                        <!-- Shield / SSC -->
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="edu-svg">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="edu-inst">C.A.A. Model School 2</div>
-                                        <div class="edu-degree">SSC — Matriculation</div>
-                                    </div>
-                                    <span class="edu-year">– 2016</span>
-                                </div>
-                                <div class="edu-loc">C.A.A. Colony, Shah Faisal Town, Karachi</div>
-                            </div>
-
                         </div>
                     </div>
 
                     <!-- Skills -->
                     <div class="panel">
-                        <div class="panel-label">Skill Tree</div>
+                        <div class="panel-label">Skills</div>
                         <div class="abilities-grid">
-
-                            <!-- Data Visualization: bar chart -->
-                            <div class="ability-card">
-                                <div class="ability-icon">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
-                                    </svg>
-                                </div>
-                                <div class="ability-body">
-                                    <div class="ability-name">Data Visualization</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
-                                </div>
-                                <span class="ability-rank rank-a">A</span>
-                            </div>
 
                             <!-- HTML/CSS/JS: code tag -->
                             <div class="ability-card">
@@ -213,9 +200,7 @@
                                 </div>
                                 <div class="ability-body">
                                     <div class="ability-name">HTML / CSS / JS</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
                                 </div>
-                                <span class="ability-rank rank-b">B</span>
                             </div>
 
                             <!-- Python & SQLite3: terminal/console -->
@@ -227,9 +212,7 @@
                                 </div>
                                 <div class="ability-body">
                                     <div class="ability-name">Python &amp; SQLite3</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span><span class="star">★</span></div>
                                 </div>
-                                <span class="ability-rank rank-b">B</span>
                             </div>
 
                             <!-- Digital Marketing & SEO: megaphone with signal waves -->
@@ -241,9 +224,7 @@
                                 </div>
                                 <div class="ability-body">
                                     <div class="ability-name">Digital Marketing &amp; SEO</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
                                 </div>
-                                <span class="ability-rank rank-a">A</span>
                             </div>
 
                             <!-- Customer Service: headset -->
@@ -257,9 +238,7 @@
                                 </div>
                                 <div class="ability-body">
                                     <div class="ability-name">Customer Service</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></div>
                                 </div>
-                                <span class="ability-rank rank-s">S</span>
                             </div>
 
                             <!-- AI & Prompt Engineering: sparkles / wand -->
@@ -271,9 +250,7 @@
                                 </div>
                                 <div class="ability-body">
                                     <div class="ability-name">AI &amp; Prompt Engineering</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
                                 </div>
-                                <span class="ability-rank rank-a">A</span>
                             </div>
 
                             <!-- MS Office / Data Entry: grid/spreadsheet -->
@@ -289,9 +266,7 @@
                                 </div>
                                 <div class="ability-body">
                                     <div class="ability-name">MS Office &amp; Data Entry</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></div>
                                 </div>
-                                <span class="ability-rank rank-s">S</span>
                             </div>
 
                             <!-- Documentation / Report Writing: clipboard -->
@@ -306,17 +281,15 @@
                                 </div>
                                 <div class="ability-body">
                                     <div class="ability-name">Documentation &amp; Reports</div>
-                                    <div class="stars"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star">★</span></div>
                                 </div>
-                                <span class="ability-rank rank-a">A</span>
                             </div>
 
                         </div>
                     </div>
 
-                    <!-- Experience — role first -->
+                    <!-- Experience -->
                     <div class="panel">
-                        <div class="panel-label">Quest History</div>
+                        <div class="panel-label">Experience</div>
                         <div class="exp-list">
                             <div class="exp-entry">
                                 <div class="exp-header">
@@ -353,7 +326,7 @@
 
                     <!-- Publication -->
                     <div class="panel">
-                        <div class="panel-label">Rare Item — IEEE Publication</div>
+                        <div class="panel-label">Publication</div>
                         <div class="pub-card">
                             <div class="pub-gem">◆</div>
                             <div class="pub-body">
@@ -365,43 +338,16 @@
                         </div>
                     </div>
 
-                    <!-- Titles -->
-                    <div class="panel">
-                        <div class="panel-label">Titles Earned</div>
-                        <div class="titles-list">
-                            <div class="title-row title-active">
-                                <span class="title-glyph">⛨</span>
-                                <span class="title-text">The Rising Developer — Forging skills from Lv.1</span>
-                                <span class="title-status status-active">Active</span>
-                            </div>
-                            <div class="title-row">
-                                <span class="title-glyph">✦</span>
-                                <span class="title-text">Published Researcher — IEEE 2023</span>
-                                <span class="title-status status-active">Earned</span>
-                            </div>
-                            <div class="title-row">
-                                <span class="title-glyph">◈</span>
-                                <span class="title-text">Data Guardian — Health Care Analytics</span>
-                                <span class="title-status status-active">Earned</span>
-                            </div>
-                            <div class="title-row title-sealed">
-                                <span class="title-glyph">◈</span>
-                                <span class="title-text">Full-Stack Mage — Django &amp; Android/Kotlin</span>
-                                <span class="title-status status-locked">Locked</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </section>
             </div><!-- /content-grid -->
 
+            <!--
             <div class="ornamental-divider" aria-hidden="true">
                 <div class="orn-line"></div>
-                <svg viewBox="0 0 100 22" width="100" height="22" fill="none"><line x1="0" y1="11" x2="34" y2="11" stroke="#b8860b" stroke-width="1"/><polygon points="38,3 62,3 68,11 62,19 38,19 32,11" stroke="#b8860b" stroke-width="1.2"/><circle cx="50" cy="11" r="3.2" fill="#b8860b"/><line x1="66" y1="11" x2="100" y2="11" stroke="#b8860b" stroke-width="1"/></svg>
+                <svg viewBox="0 0 100 22" width="100" height="22" fill="none"><line x1="0" y1="11" x2="34" y2="11" stroke="var(--gold-rim)" stroke-width="1"/><polygon points="38,3 62,3 68,11 62,19 38,19 32,11" stroke="var(--gold-rim)" stroke-width="1.2"/><circle cx="50" cy="11" r="3.2" fill="var(--gold-rim)"/><line x1="66" y1="11" x2="100" y2="11" stroke="var(--gold-rim)" stroke-width="1"/></svg>
                 <div class="orn-line"></div>
             </div>
 
-            <!-- Roadmap -->
             <div class="roadmap-section">
                 <div class="panel-label" style="padding: 0 52px 16px;">Learning Roadmap</div>
                 <div class="roadmap-grid roadmap-grid--5">
@@ -437,37 +383,39 @@
                     </div>
                 </div>
             </div>
+            -->
 
             <footer class="window-footer">
-                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
-                <span class="footer-text">Syed Murtaza Haider &nbsp;·&nbsp; Rising from Lv.1 &nbsp;·&nbsp; The journey has just begun</span>
-                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg>
+                <span class="footer-text">Syed Murtaza Haider &nbsp;·&nbsp; Karachi, Pakistan</span>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg>
             </footer>
         </div>
         </div><!-- /tab-about -->
 
 
         <!-- ══════ PROJECTS ══════ -->
+        <!-- PROJECTS TAB — temporarily disabled
         <div class="tab-panel" id="tab-projects">
         <div class="status-window">
             <div class="window-chrome" aria-hidden="true">
-                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="5" cy="5" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="43" cy="5" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="5" cy="43" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="43" cy="43" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="var(--gold-hi)"/></svg></div>
             </div>
             <header class="window-header">
                 <div class="header-rule"></div>
-                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">QUEST LOG — PROJECTS</span><span class="header-brace">⟫</span></div>
+                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">PROJECTS</span><span class="header-brace">⟫</span></div>
                 <div class="header-rule"></div>
             </header>
 
             <div class="projects-body">
 
-                <!-- Tech -->
+                [[ Tech ]]
                 <div class="ornamental-divider" style="padding:0; margin-bottom:20px;">
                     <div class="orn-line"></div>
-                    <div class="proj-section-tag">⚔ Tech Quests</div>
+                    <div class="proj-section-tag">Tech</div>
                     <div class="orn-line"></div>
                 </div>
                 <div class="projects-grid">
@@ -500,10 +448,10 @@
                     </div>
                 </div>
 
-                <!-- Non-Tech -->
+                [[ Non-Tech ]]
                 <div class="ornamental-divider" style="padding:0; margin:32px 0 20px;">
                     <div class="orn-line"></div>
-                    <div class="proj-section-tag proj-section-tag--alt">✦ Non-Tech Quests</div>
+                    <div class="proj-section-tag proj-section-tag--alt">Non-Tech</div>
                     <div class="orn-line"></div>
                 </div>
                 <div class="projects-grid">
@@ -527,10 +475,10 @@
                     </div>
                 </div>
 
-                <!-- Previous Quests / Courses -->
+                [[ Courses ]]
                 <div class="ornamental-divider" style="padding:0; margin:32px 0 20px;">
                     <div class="orn-line"></div>
-                    <div class="proj-section-tag proj-section-tag--prev">📜 Previous Quests — Courses Completed</div>
+                    <div class="proj-section-tag proj-section-tag--prev">Courses Completed</div>
                     <div class="orn-line"></div>
                 </div>
                 <div class="projects-grid">
@@ -556,138 +504,284 @@
                     </div>
                 </div>
 
-            </div><!-- /projects-body -->
+            </div>[[ /projects-body ]]
 
             <footer class="window-footer">
-                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
-                <span class="footer-text">More quests incoming — the adventure continues</span>
-                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg>
+                <span class="footer-text">More projects added regularly</span>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg>
             </footer>
         </div>
-        </div><!-- /tab-projects -->
+        </div>[[ /tab-projects ]]
+        -->
 
 
-        <!-- ══════ CONTACT ══════ -->
-        <div class="tab-panel" id="tab-contact">
+        <!-- ══════ VOICE SHOWROOM ══════ -->
+        <div class="tab-panel" id="tab-voices">
         <div class="status-window">
             <div class="window-chrome" aria-hidden="true">
-                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="5" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="#b8860b" stroke-width="2"/><circle cx="5" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="#f0c040"/></svg></div>
-                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="#b8860b" stroke-width="2"/><circle cx="43" cy="43" r="3.5" fill="#b8860b" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="#f0c040"/></svg></div>
+                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="5" cy="5" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="5" cy="5" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="43" cy="5" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="43" cy="5" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="5" cy="43" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="5" cy="43" r="1.5" fill="var(--gold-hi)"/></svg></div>
+                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="43" cy="43" r="3.5" fill="var(--gold-rim)" opacity="0.9"/><circle cx="43" cy="43" r="1.5" fill="var(--gold-hi)"/></svg></div>
             </div>
             <header class="window-header">
                 <div class="header-rule"></div>
-                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">SEND A RAVEN — CONTACT</span><span class="header-brace">⟫</span></div>
+                <div class="header-content"><span class="header-brace">⟪</span><span class="window-title">VOICE SHOWROOM</span><span class="header-brace">⟫</span></div>
                 <div class="header-rule"></div>
             </header>
 
-            <div class="contact-body">
-                <div class="contact-lore"><p>The shield bearer is open to alliances, guild quests, and new adventures. Choose your preferred channel to make contact.</p></div>
+            <div class="voices-body">
 
-                <div class="contact-cards">
-                    <a href="tel:+923363529384" class="contact-card">
-                        <div class="contact-card-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-hi)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.38 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-card-body">
-                            <div class="contact-card-label">Phone</div>
-                            <div class="contact-card-value">+92-336-3529384</div>
-                            <div class="contact-card-sub">Click to call</div>
-                        </div>
-                        <span class="contact-arrow">→</span>
-                    </a>
-                    <a href="mailto:haiderali_zaidi@outlook.com" class="contact-card">
-                        <div class="contact-card-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-hi)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                        </div>
-                        <div class="contact-card-body">
-                            <div class="contact-card-label">Email</div>
-                            <div class="contact-card-value">haiderali_zaidi@outlook.com</div>
-                            <div class="contact-card-sub">Send a scroll</div>
-                        </div>
-                        <span class="contact-arrow">→</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/s-m-haider15/" target="_blank" rel="noopener noreferrer" class="contact-card">
-                        <div class="contact-card-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="var(--gold-hi)">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-                            </svg>
-                        </div>
-                        <div class="contact-card-body">
-                            <div class="contact-card-label">LinkedIn</div>
-                            <div class="contact-card-value">linkedin.com/in/s-m-haider15</div>
-                            <div class="contact-card-sub">Join the party</div>
-                        </div>
-                        <span class="contact-arrow">→</span>
-                    </a>
-                    <div class="contact-card contact-card--dimmed">
-                        <div class="contact-card-icon">
-                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="var(--gold-hi)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                            </svg>
-                        </div>
-                        <div class="contact-card-body">
-                            <div class="contact-card-label">GitHub</div>
-                            <div class="contact-card-value">Coming soon…</div>
-                            <div class="contact-card-sub">Unlocking soon</div>
-                        </div>
-                        <span class="contact-arrow locked-arrow">🔒</span>
-                    </div>
+                <p class="voices-subtitle">A growing collection of character voice acting demos — anime impressions and tribute reads, recorded across English and Urdu. Filter by language and press play to listen.</p>
+
+                <div class="language-filters" id="languageFilters" role="group" aria-label="Filter voices by language">
+                    <button class="filter-btn filter-btn--active" data-lang="all">All</button>
+                    <button class="filter-btn" data-lang="en">English</button>
+                    <button class="filter-btn" data-lang="ur">Urdu</button>
+                    <button class="filter-btn" data-lang="jp">Japanese</button>
                 </div>
 
-                <div class="ornamental-divider" style="margin: 32px 0;">
-                    <div class="orn-line"></div>
-                    <svg viewBox="0 0 100 22" width="100" height="22" fill="none"><line x1="0" y1="11" x2="34" y2="11" stroke="#b8860b" stroke-width="1"/><polygon points="38,3 62,3 68,11 62,19 38,19 32,11" stroke="#b8860b" stroke-width="1.2"/><circle cx="50" cy="11" r="3.2" fill="#b8860b"/><line x1="66" y1="11" x2="100" y2="11" stroke="#b8860b" stroke-width="1"/></svg>
-                    <div class="orn-line"></div>
-                </div>
+                <div class="voice-grid" id="voiceGrid">
 
-                <!-- Message form — powered by EmailJS (free, no backend) -->
-                <div class="contact-form-wrap">
-                    <h2 class="quest-heading">Send a Message</h2>
-                    <p class="quest-body">Fill in the form below and I'll receive your message directly in my inbox.</p>
-                    <div class="emailjs-notice" id="emailjsNotice">
-                        <span class="notice-icon">ℹ</span>
-                        <span>To activate this form, add your <strong>EmailJS</strong> credentials in <code>index.js</code> — see the comments there. It's free and takes 2 minutes.</span>
-                    </div>
-                    <div class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label class="form-label" for="cfName">Your Name</label>
-                                <input type="text" id="cfName" name="from_name" placeholder="e.g. Ali Khan" class="scroll-input" autocomplete="name">
+                    <div class="voice-card" data-lang="jp">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--a">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
                             </div>
-                            <div class="form-group">
-                                <label class="form-label" for="cfEmail">Your Email</label>
-                                <input type="email" id="cfEmail" name="reply_to" placeholder="you@example.com" class="scroll-input" autocomplete="email">
+                            <div class="voice-info">
+                                <span class="voice-name">Iori</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/jp.png" srcset="https://flagcdn.com/48x36/jp.png 2x" alt="jp flag" width="16" height="12">Japanese</span>
+                                </div>
                             </div>
+                            <button class="play-btn" data-audio="audio-voice1" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
                         </div>
-                        <div class="form-group" style="margin-top:10px;">
-                            <label class="form-label" for="cfSubject">Subject</label>
-                            <input type="text" id="cfSubject" name="subject" placeholder="What's this about?" class="scroll-input">
+                        <p class="voice-desc">Sharp-edged intensity with a brooding undertone — built for rival and antagonist roles.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
                         </div>
-                        <div class="form-group" style="margin-top:10px;">
-                            <label class="form-label" for="cfMsg">Message</label>
-                            <textarea id="cfMsg" name="message" placeholder="Write your message here…" class="scroll-input scroll-textarea" rows="5" style="resize:vertical;"></textarea>
-                        </div>
-                        <div style="margin-top:14px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-                            <button type="button" id="cfSend" class="cta-btn cta-primary">Send Message</button>
-                            <div class="form-feedback" id="cfFeedback" role="alert"></div>
-                        </div>
+                        <audio id="audio-voice1" src="audio/iori.mp3" preload="none"></audio>
                     </div>
+
+                    <div class="voice-card" data-lang="en">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--c">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
+                            </div>
+                            <div class="voice-info">
+                                <span class="voice-name">Senku Ishigami</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
+                                </div>
+                            </div>
+                            <button class="play-btn" data-audio="audio-voice2" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                        </div>
+                        <p class="voice-desc">Rapid-fire, analytical delivery with restless genius energy — Dr. Stone's resident scientist.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
+                        </div>
+                        <audio id="audio-voice2" src="audio/senku.mp3" preload="none"></audio>
+                    </div>
+
+                    <div class="voice-card" data-lang="en">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--g">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
+                            </div>
+                            <div class="voice-info">
+                                <span class="voice-name">Vegeta — Take 1</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
+                                </div>
+                            </div>
+                            <button class="play-btn" data-audio="audio-voice3" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                        </div>
+                        <p class="voice-desc">Proud, commanding Saiyan-prince tone — full of restrained fury.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
+                        </div>
+                        <audio id="audio-voice3" src="audio/vegeta_take1.mp3" preload="none"></audio>
+                    </div>
+
+                    <div class="voice-card" data-lang="en">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--g">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
+                            </div>
+                            <div class="voice-info">
+                                <span class="voice-name">Vegeta — Take 2</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
+                                </div>
+                            </div>
+                            <button class="play-btn" data-audio="audio-voice4" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                        </div>
+                        <p class="voice-desc">Alternate take — a touch more controlled, theatrical menace.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
+                        </div>
+                        <audio id="audio-voice4" src="audio/vegeta_take2.mp3" preload="none"></audio>
+                    </div>
+
+                    <div class="voice-card" data-lang="en">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--d">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
+                            </div>
+                            <div class="voice-info">
+                                <span class="voice-name">Yami Sukehiro</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
+                                </div>
+                            </div>
+                            <button class="play-btn" data-audio="audio-voice5" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                        </div>
+                        <p class="voice-desc">Gruff, larger-than-life captain energy with a streak of dry humor — Black Clover.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
+                        </div>
+                        <audio id="audio-voice5" src="audio/yami.mp3" preload="none"></audio>
+                    </div>
+
+                    <div class="voice-card" data-lang="en">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--h">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
+                            </div>
+                            <div class="voice-info">
+                                <span class="voice-name">Goku</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
+                                </div>
+                            </div>
+                            <button class="play-btn" data-audio="audio-voice6" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                        </div>
+                        <p class="voice-desc">Warm, easygoing hero voice — endlessly optimistic and instantly recognizable.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
+                        </div>
+                        <audio id="audio-voice6" src="audio/goku.mp3" preload="none"></audio>
+                    </div>
+
+                    <div class="voice-card" data-lang="en">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--b">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
+                            </div>
+                            <div class="voice-info">
+                                <span class="voice-name">Ayanokoji</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
+                                </div>
+                            </div>
+                            <button class="play-btn" data-audio="audio-voice7" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                        </div>
+                        <p class="voice-desc">Calm, calculating, near-deadpan delivery — quiet menace beneath the surface.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
+                        </div>
+                        <audio id="audio-voice7" src="audio/ayanokoji.mp3" preload="none"></audio>
+                    </div>
+
+                    <div class="voice-card" data-lang="ur">
+                        <div class="voice-card-top">
+                            <div class="voice-avatar voice-avatar--f">
+                                <svg viewBox="0 0 64 64" class="avatar-svg">
+                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
+                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
+                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
+                                </svg>
+                            </div>
+                            <div class="voice-info">
+                                <span class="voice-name">Zia Mohiuddin — Tribute</span>
+                                <div class="voice-tags">
+                                    <span class="voice-tag voice-tag--male">Male</span>
+                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/pk.png" srcset="https://flagcdn.com/48x36/pk.png 2x" alt="Pakistan flag" width="16" height="12">Urdu</span>
+                                </div>
+                            </div>
+                            <button class="play-btn" data-audio="audio-voice8" aria-label="Play sample">
+                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+                            </button>
+                        </div>
+                        <p class="voice-desc">A tribute reading in the classic, theatrical style of Zia Mohiuddin's Urdu narration — rich timbre, deliberate pacing.</p>
+                        <div class="waveform">
+                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
+                        </div>
+                        <audio id="audio-voice8" src="audio/zia.mp3" preload="none"></audio>
+                    </div>
+
                 </div>
-            </div>
+
+                <p class="voices-note">Note: voices are performed by Syed Murtaza Haider as character impressions and tribute reads — not AI-generated. More languages and characters are recorded regularly.</p>
+
+            </div><!-- /voices-body -->
 
             <footer class="window-footer">
-                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
-                <span class="footer-text">Syed Murtaza Haider &nbsp;·&nbsp; Karachi, Pakistan &nbsp;·&nbsp; Available for new quests</span>
-                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="#7a5a10" stroke-width="1.5"/></svg>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg>
+                <span class="footer-text">More languages and voices added regularly</span>
+                <svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg>
             </footer>
         </div>
-        </div><!-- /tab-contact -->
+        </div><!-- /tab-voices -->
+
 
     </main>
     <!-- EmailJS SDK (free email delivery, no backend needed) -->
