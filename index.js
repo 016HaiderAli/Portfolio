@@ -493,9 +493,49 @@ function initVoiceShowroom() {
     });
 }
 
+
+/* ─── PROJECT PREVIEW LIGHTBOX ─── */
+function initProjectLightbox() {
+    var lightbox = document.getElementById('projectLightbox');
+    var image = document.getElementById('projectLightboxImage');
+    var title = document.getElementById('projectLightboxTitle');
+    var triggers = document.querySelectorAll('.project-preview-trigger');
+    if (!lightbox || !image || !title || !triggers.length) return;
+
+    var lastTrigger = null;
+    var closeButton = lightbox.querySelector('.project-lightbox-close');
+
+    function openLightbox(trigger) {
+        lastTrigger = trigger;
+        image.src = trigger.getAttribute('data-preview');
+        image.alt = trigger.querySelector('img').alt + ', enlarged';
+        title.textContent = trigger.getAttribute('data-title') || 'Project preview';
+        lightbox.hidden = false;
+        document.body.classList.add('lightbox-open');
+        if (closeButton) closeButton.focus();
+    }
+
+    function closeLightbox() {
+        if (lightbox.hidden) return;
+        lightbox.hidden = true;
+        document.body.classList.remove('lightbox-open');
+        image.removeAttribute('src');
+        if (lastTrigger) lastTrigger.focus();
+    }
+
+    triggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() { openLightbox(trigger); });
+    });
+    lightbox.querySelectorAll('[data-lightbox-close]').forEach(function(control) {
+        control.addEventListener('click', closeLightbox);
+    });
+    document.addEventListener('keydown', function(event) {
+        if (!lightbox.hidden && event.key === 'Escape') closeLightbox();
+    });
+}
 /* ─── BOOT ─── */
 document.addEventListener('DOMContentLoaded', function() {
-    var inits = [initThemePicker, spawnParticles, animateBars, initTabs, initPortraitTilt, initContactForm, initVoiceShowroom];
+    var inits = [initThemePicker, spawnParticles, animateBars, initTabs, initPortraitTilt, initContactForm, initVoiceShowroom, initProjectLightbox];
     inits.forEach(function(fn) {
         try { fn(); } catch (err) { console.error('Init failed:', fn.name, err); }
     });
