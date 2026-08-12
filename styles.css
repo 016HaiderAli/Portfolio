@@ -686,6 +686,29 @@ body.theme-light .portrait-img { filter: sepia(10%) contrast(105%) brightness(1)
 .ability-body { flex: 1; min-width: 0; }
 .ability-name { font-family: var(--f-heading); font-size: 12px; color: var(--text-base); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.03em; }
 
+.skill-group { display: flex; flex-direction: column; }
+.skill-group + .skill-group { margin-top: 18px; }
+.skill-sub {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 10px;
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-date);
+}
+.skill-sub::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: var(--gold-rim);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+}
+
 /* ═══════════════════════════════════════════════════════════
    EXPERIENCE
    ═══════════════════════════════════════════════════════════ */
@@ -869,6 +892,43 @@ body.lightbox-open { overflow: hidden; }
     min-height: 140px;
     padding: 16px;
     background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+}
+
+/* ─── Voice overview hero visual (abstract language/audio motif) ─── */
+.voice-hero-visual {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 16px;
+    text-align: center;
+    pointer-events: none;
+}
+.voice-hero-mic {
+    width: 22px;
+    height: 22px;
+    color: var(--gold-mid);
+    opacity: 0.7;
+}
+.voice-hero-lang {
+    font-family: var(--f-heading);
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--gold-hi);
+    opacity: 0.38;
+    text-shadow: 0 0 18px rgba(240,192,64,0.18);
+}
+.voice-hero-wave {
+    width: 120px;
+    max-width: 78%;
+    height: 22px;
+    color: var(--gold-lo);
+    opacity: 0.6;
 }
 
 .voice-category-hero-text {

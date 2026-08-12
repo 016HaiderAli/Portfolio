@@ -563,6 +563,11 @@ function getLanguageLabel(lang) {
     return map[lang] || lang.toUpperCase();
 }
 
+function getVoiceHeroGlyph(lang) {
+    var map = { en: 'EN', jp: '日本語', ur: 'اردو' };
+    return map[lang] || (getLanguageLabel(lang).charAt(0));
+}
+
 function renderVoiceMenu(root, activeLanguage) {
     var languages = getVoiceLanguages();
     var nav = document.createElement('div');
@@ -630,8 +635,19 @@ function renderVoiceShowroomOverview(root) {
         var card = document.createElement('div');
         card.className = 'collection-card design-category-panel';
         card.innerHTML =
-            '<div class="collection-thumb voice-category-hero ' + item.avatar + '">' +
-                '<div class="voice-category-hero-text">' + group.label + '</div>' +
+            '<div class="collection-thumb voice-category-hero voice-hero--' + group.lang + ' ' + item.avatar + '">' +
+                '<div class="voice-hero-visual">' +
+                    '<svg class="voice-hero-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+                        '<rect x="9" y="2" width="6" height="12" rx="3"/>' +
+                        '<path d="M5 10a7 7 0 0 0 14 0"/>' +
+                        '<line x1="12" y1="17" x2="12" y2="22"/>' +
+                        '<line x1="8" y1="22" x2="16" y2="22"/>' +
+                    '</svg>' +
+                    '<div class="voice-hero-lang">' + getVoiceHeroGlyph(group.lang) + '</div>' +
+                    '<svg class="voice-hero-wave" viewBox="0 0 140 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">' +
+                        '<path d="M4 15V9M12 19V5M20 16V8M28 11V13M36 18V6M44 13V11M52 20V4M60 14V10M68 17V7M76 12V12M84 19V5M92 15V9M100 18V6M108 13V11M116 16V8M124 12V12"/>' +
+                    '</svg>' +
+                '</div>' +
             '</div>' +
             '<div class="collection-meta collection-category-meta">' +
                 '<div class="collection-title">' + item.name + '</div>' +
