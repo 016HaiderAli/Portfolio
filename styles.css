@@ -798,12 +798,17 @@ body.theme-light .portrait-img { filter: sepia(10%) contrast(105%) brightness(1)
 .project-lightbox-close { display: grid; place-items: center; width: 36px; height: 36px; flex: 0 0 auto; border: 1px solid var(--border-main); background: var(--bg-inset); color: var(--text-hi); font-size: 25px; line-height: 1; cursor: pointer; }
 .project-lightbox-close:hover { color: var(--gold-hi); border-color: var(--gold-rim); }
 .project-lightbox-image { display: block; width: 100%; height: auto; max-height: calc(92vh - 62px); object-fit: contain; background: var(--bg-void); }
+.project-lightbox-body { display:flex; align-items:center; justify-content:center; gap:12px; padding: 12px 16px; }
+.project-lightbox-prev, .project-lightbox-next { flex: 0 0 44px; height: 44px; border-radius: 6px; border: 1px solid var(--border-main); background: var(--bg-panel-deep); color: var(--text-hi); font-size: 20px; cursor: pointer; }
+.project-lightbox-caption { padding: 8px 16px 18px; font-family: var(--f-mono); font-size: 12px; color: var(--text-lo); }
 body.lightbox-open { overflow: hidden; }
 /* ═══════════════════════════════════════════════════════════
    VOICE SHOWROOM TAB
    ═══════════════════════════════════════════════════════════ */
 
 .voices-body { padding: 30px 52px 24px; }
+
+.voices-intro { margin-bottom: 26px; }
 
 .voices-subtitle {
     font-family: var(--f-body);
@@ -814,6 +819,74 @@ body.lightbox-open { overflow: hidden; }
     margin-bottom: 22px;
     max-width: 640px;
 }
+
+.voice-category-menu,
+.section-category-menu,
+.voice-language-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 26px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.voice-category-menu button,
+.section-category-menu button,
+.voice-language-menu button {
+    flex: 0 0 auto;
+}
+
+.collection-card.design-category-panel,
+.design-character-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.collection-card.design-category-panel:hover,
+.design-character-card:hover,
+.collection-card.design-category-panel:focus,
+.design-character-card:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    outline: none;
+}
+
+.collection-card.design-category-panel:focus-visible,
+.design-character-card:focus-visible,
+.section-category-menu button:focus-visible,
+.voice-language-menu button:focus-visible {
+    outline: 2px solid var(--gold-hi);
+    outline-offset: 3px;
+}
+
+.voice-category-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    min-height: 140px;
+    padding: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+}
+
+.voice-category-hero-text {
+    font-family: var(--f-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-lo);
+}
+
+.voice-category-hero.voice-avatar--a { background: radial-gradient(circle at 25% 20%, rgba(240,192,64,0.24), transparent 36%), radial-gradient(circle at 75% 85%, rgba(58,127,212,0.12), transparent 38%); }
+.voice-category-hero.voice-avatar--b { background: radial-gradient(circle at 25% 20%, rgba(224,122,176,0.22), transparent 30%), radial-gradient(circle at 75% 85%, rgba(56,142,255,0.08), transparent 34%); }
+.voice-category-hero.voice-avatar--c { background: radial-gradient(circle at 25% 20%, rgba(58,127,212,0.2), transparent 34%), radial-gradient(circle at 75% 85%, rgba(240,192,64,0.08), transparent 34%); }
+.voice-category-hero.voice-avatar--d { background: radial-gradient(circle at 25% 20%, rgba(58,255,190,0.18), transparent 34%), radial-gradient(circle at 75% 85%, rgba(240,192,64,0.08), transparent 34%); }
+.voice-category-hero.voice-avatar--e { background: radial-gradient(circle at 25% 20%, rgba(224,122,176,0.18), transparent 34%), radial-gradient(circle at 75% 85%, rgba(255,255,255,0.08), transparent 34%); }
+.voice-category-hero.voice-avatar--f { background: radial-gradient(circle at 25% 20%, rgba(58,127,212,0.2), transparent 34%), radial-gradient(circle at 75% 85%, rgba(58,255,190,0.08), transparent 34%); }
+.voice-category-hero.voice-avatar--g { background: radial-gradient(circle at 25% 20%, rgba(204,51,51,0.22), transparent 34%), radial-gradient(circle at 75% 85%, rgba(240,192,64,0.08), transparent 34%); }
+.voice-category-hero.voice-avatar--h { background: radial-gradient(circle at 25% 20%, rgba(240,192,64,0.24), transparent 36%), radial-gradient(circle at 75% 85%, rgba(255,255,255,0.1), transparent 38%); }
 
 .language-filters {
     display: flex;
@@ -866,6 +939,7 @@ body.lightbox-open { overflow: hidden; }
 }
 
 .voice-card--hidden { display: none; }
+.collection-card.character-card--hidden { display: none; }
 
 .voice-card-top {
     display: flex;
@@ -1057,6 +1131,37 @@ body.lightbox-open { overflow: hidden; }
     border-radius: 2px;
     color: var(--gold-hi);
     font-size: 9.5px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DESIGNS TAB (minimal, reuses existing project styles)
+   ─────────────────────────────────────────────────────────── */
+.designs-body { padding: 18px 52px 24px; }
+.designs-overview-copy { margin: 12px 0 26px; font-family: var(--f-body); color: var(--text-lo); max-width: 720px; line-height: 1.7; }
+.designs-category-header { display: grid; gap: 12px; margin-bottom: 18px; }
+.designs-grid, .featured-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.category-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.collection-card, .featured-card { background: var(--bg-inset); border: 1px solid var(--border-inset); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.collection-category-card { min-height: 230px; justify-content: space-between; }
+.collection-category-thumb { position: relative; min-height: 140px; display: flex; align-items: flex-end; justify-content: flex-start; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.08) 100%); }
+.collection-spotlight { width: 100%; height: 100%; background: radial-gradient(circle at 20% 35%, rgba(184,134,11,0.16), transparent 38%), radial-gradient(circle at 80% 20%, rgba(58,127,212,0.12), transparent 28%); }
+.collection-thumb { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-panel-deep); display: block; border-radius: 8px; }
+.collection-thumb img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
+.collection-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.collection-category-meta { flex-direction: column; align-items: flex-start; gap: 6px; }
+.collection-title { font-family: var(--f-heading); font-size: 13px; color: var(--text-hi); line-height: 1.2; }
+.collection-desc { font-family: var(--f-body); font-size: 12px; color: var(--text-lo); line-height: 1.5; }
+.collection-count { font-family: var(--f-mono); font-size: 10px; color: var(--text-lo); padding: 4px 8px; border: 1px solid rgba(184,134,11,0.08); }
+.collection-category-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+
+.language-filters, .designs-filter-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.filter-btn { font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-lo); background: var(--bg-inset); border: 1px solid rgba(184,134,11,0.16); padding: 8px 14px; cursor: pointer; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+.filter-btn--active { background: rgba(184,134,11,0.12); border-color: rgba(184,134,11,0.3); color: var(--text-hi); }
+
+@media (max-width: 700px) {
+    .designs-body { padding: 16px 26px 24px; }
+    .designs-grid, .featured-grid, .category-grid { grid-template-columns: 1fr; }
+    .collection-category-footer { flex-direction: column; align-items: stretch; }
 }
 
 /* ═══════════════════════════════════════════════════════════

@@ -22,6 +22,7 @@
             <div class="tab-list">
                 <button class="tab-btn tab-active" data-tab="about"><span class="tab-glyph">⛨</span> About</button>
                 <button class="tab-btn" data-tab="projects"><span class="tab-glyph">◈</span> Projects</button>
+                <button class="tab-btn" data-tab="designs"><span class="tab-glyph">✦</span> Designs</button>
                 <button class="tab-btn" data-tab="voices"><span class="tab-glyph">🎙</span> Voice Showroom</button>
             </div>
             <!-- Theme picker -->
@@ -429,9 +430,41 @@
         </div>
         </div><!-- /tab-projects -->
 
+        <!-- ══════ DESIGNS ══════ -->
+        <div class="tab-panel" id="tab-designs">
+        <div class="status-window">
+            <div class="window-chrome" aria-hidden="true">
+                <div class="chrome-corner chrome-corner--tl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 48 L0 0 L48 0" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="5" cy="5" r="3.5" fill="var(--gold-rim)"/></svg></div>
+                <div class="chrome-corner chrome-corner--tr"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 48 L48 0 L0 0" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="43" cy="5" r="3.5" fill="var(--gold-rim)"/></svg></div>
+                <div class="chrome-corner chrome-corner--bl"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M0 0 L0 48 L48 48" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="5" cy="43" r="3.5" fill="var(--gold-rim)"/></svg></div>
+                <div class="chrome-corner chrome-corner--br"><svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M48 0 L48 48 L0 48" stroke="var(--gold-rim)" stroke-width="2"/><circle cx="43" cy="43" r="3.5" fill="var(--gold-rim)"/></svg></div>
+            </div>
+            <header class="window-header"><div class="header-rule"></div><div class="header-content"><span class="header-brace">⟪</span><span class="window-title">DESIGNS</span><span class="header-brace">⟫</span></div><div class="header-rule"></div></header>
+            <div class="designs-body" id="designsBody">
+                <div class="designs-intro">
+                    <div class="panel-label">Selected Creative Work</div>
+                    <p class="voices-subtitle">Creative Design — visual design, banners, social media graphics, character design, and promotional artwork.</p>
+                </div>
+                <div id="designsContent"></div>
+            </div>
+            <footer class="window-footer"><svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg><span class="footer-text">Designs · Selected creative work</span><svg viewBox="0 0 28 33" width="16" height="19" fill="none"><path d="M14 2L26 7.5L26 17C26 25 14 31 14 31C14 31 2 25 2 17L2 7.5Z" stroke="var(--gold-lo)" stroke-width="1.5"/></svg></footer>
+        </div>
+        </div><!-- /tab-designs -->
+
         <div class="project-lightbox" id="projectLightbox" role="dialog" aria-modal="true" aria-labelledby="projectLightboxTitle" hidden>
             <button class="project-lightbox-backdrop" type="button" data-lightbox-close aria-label="Close preview"></button>
-            <div class="project-lightbox-dialog"><div class="project-lightbox-header"><h2 id="projectLightboxTitle" class="project-lightbox-title">Project preview</h2><button class="project-lightbox-close" type="button" data-lightbox-close aria-label="Close preview">×</button></div><img class="project-lightbox-image" id="projectLightboxImage" src="" alt=""></div>
+            <div class="project-lightbox-dialog">
+                <div class="project-lightbox-header">
+                    <h2 id="projectLightboxTitle" class="project-lightbox-title">Project preview</h2>
+                    <button class="project-lightbox-close" type="button" data-lightbox-close aria-label="Close preview">×</button>
+                </div>
+                <div class="project-lightbox-body">
+                    <button class="project-lightbox-prev" type="button" aria-label="Previous image">‹</button>
+                    <img class="project-lightbox-image" id="projectLightboxImage" src="" alt="">
+                    <button class="project-lightbox-next" type="button" aria-label="Next image">›</button>
+                </div>
+                <div id="projectLightboxCaption" class="project-lightbox-caption" aria-live="polite"></div>
+            </div>
         </div>
 
         <!-- ══════ VOICE SHOWROOM ══════ -->
@@ -449,246 +482,11 @@
                 <div class="header-rule"></div>
             </header>
 
-            <div class="voices-body">
-
-                <p class="voices-subtitle">A growing collection of character voice acting demos — anime impressions and tribute reads, recorded across English and Urdu. Filter by language and press play to listen.</p>
-
-                <div class="language-filters" id="languageFilters" role="group" aria-label="Filter voices by language">
-                    <button class="filter-btn filter-btn--active" data-lang="all">All</button>
-                    <button class="filter-btn" data-lang="en">English</button>
-                    <button class="filter-btn" data-lang="ur">Urdu</button>
-                    <button class="filter-btn" data-lang="jp">Japanese</button>
-                </div>
-
-                <div class="voice-grid" id="voiceGrid">
-
-                    <div class="voice-card" data-lang="jp">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--a">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Iori</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/jp.png" srcset="https://flagcdn.com/48x36/jp.png 2x" alt="jp flag" width="16" height="12">Japanese</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice1" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">Sharp-edged intensity with a brooding undertone — built for rival and antagonist roles.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice1" src="audio/iori.mp3" preload="none"></audio>
-                    </div>
-
-                    <div class="voice-card" data-lang="en">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--c">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Senku Ishigami</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice2" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">Rapid-fire, analytical delivery with restless genius energy — Dr. Stone's resident scientist.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice2" src="audio/senku.mp3" preload="none"></audio>
-                    </div>
-
-                    <div class="voice-card" data-lang="en">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--g">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Vegeta — Take 1</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice3" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">Proud, commanding Saiyan-prince tone — full of restrained fury.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice3" src="audio/vegeta_take1.mp3" preload="none"></audio>
-                    </div>
-
-                    <div class="voice-card" data-lang="en">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--g">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Vegeta — Take 2</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice4" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">Alternate take — a touch more controlled, theatrical menace.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice4" src="audio/vegeta_take2.mp3" preload="none"></audio>
-                    </div>
-
-                    <div class="voice-card" data-lang="en">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--d">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Yami Sukehiro</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice5" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">Gruff, larger-than-life captain energy with a streak of dry humor — Black Clover.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice5" src="audio/yami.mp3" preload="none"></audio>
-                    </div>
-
-                    <div class="voice-card" data-lang="en">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--h">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Goku</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice6" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">Warm, easygoing hero voice — endlessly optimistic and instantly recognizable.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice6" src="audio/goku.mp3" preload="none"></audio>
-                    </div>
-
-                    <div class="voice-card" data-lang="en">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--b">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Ayanokoji</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x" alt="US flag" width="16" height="12">English</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice7" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">Calm, calculating, near-deadpan delivery — quiet menace beneath the surface.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice7" src="audio/ayanokoji.mp3" preload="none"></audio>
-                    </div>
-
-                    <div class="voice-card" data-lang="ur">
-                        <div class="voice-card-top">
-                            <div class="voice-avatar voice-avatar--f">
-                                <svg viewBox="0 0 64 64" class="avatar-svg">
-                                    <circle class="avatar-ring" cx="32" cy="32" r="30"/>
-                                    <circle class="avatar-head" cx="32" cy="26" r="11"/>
-                                    <path class="avatar-body" d="M14 56c0-11 8-18 18-18s18 7 18 18"/>
-                                </svg>
-                            </div>
-                            <div class="voice-info">
-                                <span class="voice-name">Zia Mohiuddin — Tribute</span>
-                                <div class="voice-tags">
-                                    <span class="voice-tag voice-tag--male">Male</span>
-                                    <span class="voice-tag voice-tag--lang"><img class="flag-icon" src="https://flagcdn.com/24x18/pk.png" srcset="https://flagcdn.com/48x36/pk.png 2x" alt="Pakistan flag" width="16" height="12">Urdu</span>
-                                </div>
-                            </div>
-                            <button class="play-btn" data-audio="audio-voice8" aria-label="Play sample">
-                                <svg class="icon-play" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="icon-pause" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                        </div>
-                        <p class="voice-desc">A tribute reading in the classic, theatrical style of Zia Mohiuddin's Urdu narration — rich timbre, deliberate pacing.</p>
-                        <div class="waveform">
-                            <canvas class="waveform-canvas" width="280" height="44"></canvas>
-                        </div>
-                        <audio id="audio-voice8" src="audio/zia.mp3" preload="none"></audio>
-                    </div>
-
-                </div>
-
-                <p class="voices-note">Note: voices are performed by Syed Murtaza Haider as character impressions and tribute reads — not AI-generated. More languages and characters are recorded regularly.</p>
+            <div class="voices-intro">
+                <p class="voices-subtitle">Voice &amp; Audio — character voices and expressive voice performance in English, Japanese, and Urdu.</p>
+            </div>
+            <div class="voices-body" id="voicesBody"></div>
+            <p class="voices-note">Note: voices are performed by Syed Murtaza Haider as character impressions and tribute reads — not AI-generated. More languages and characters are recorded regularly.</p>
 
             </div><!-- /voices-body -->
 
